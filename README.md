@@ -1,12 +1,7 @@
 
-<div align="center">
-	<img src="https://img.icons8.com/color/96/000000/globe--v2.png" width="80"/>
   
-	# 🌍 Travelingo
+# 🌍 Travelingo
   
-	<sub><b>Plan your next adventure with AI-powered recommendations and beautiful itineraries.</b></sub>
-</div>
-
 A full-stack, data-driven travel recommendation system that helps users plan trips and discover destinations based on their preferences, time of year, and season.
 
 
