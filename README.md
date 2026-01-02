@@ -47,10 +47,30 @@ A full-stack, data-driven travel recommendation system that helps users plan tri
 ---
 
 ## ⏭️ Next Steps
-- 📋 Gather detailed requirements and refine user stories
-- 🏗️ Set up backend and frontend frameworks
-- 🗂️ Design database schema
-- 🛠️ Build MVP for user input and recommendations
+
+---
+
+## 🖥️ Frontend Setup (React + TypeScript)
+
+The frontend is located in the `frontend` directory and built with React and TypeScript.
+
+### 🚦 To run the frontend locally:
+
+```sh
+cd frontend
+npm install
+npm start
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
+
+### 🛠️ To build for production:
+
+```sh
+npm run build
+```
+
+---
 
 ---
 
