@@ -1,6 +1,5 @@
 # Travelingo System Architecture
 
-![Travelingo Architecture](./architecture-diagram.png)
 
 ---
 
@@ -16,14 +15,14 @@ flowchart TD
     F[Admin Dashboard]
     G[External APIs (Weather, Events, etc.)]
 
-    A -- REST/GraphQL --> B
-    B -- SQL/ORM --> C
-    B -- Calls --> D
-    D -- Returns Recommendations --> B
-    B -- Calls --> E
-    E -- Returns Itinerary --> B
-    B -- Admin Routes --> F
-    B -- Fetches Data --> G
+  A -- REST/GraphQL --> B
+  B -- SQL/ORM --> C
+  B -- Calls --> D
+  D -- Returns Recommendations --> B
+  B -- Calls --> E
+  E -- Returns Itinerary --> B
+  B -- Admin Routes --> F
+  B -- Fetches Data --> G
 ```
 
 ---
