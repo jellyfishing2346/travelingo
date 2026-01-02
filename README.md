@@ -40,7 +40,8 @@ A full-stack, data-driven travel recommendation system that helps users plan tri
 
 ---
 
-## 🗺️ System Blueprint & Architecture
+
+## 🗺️ System Architecture
 
 ```mermaid
 flowchart TD
