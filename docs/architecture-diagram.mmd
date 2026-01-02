@@ -1,0 +1,55 @@
+# Travelingo Architecture Diagram
+
+<!--
+  You can generate a beautiful diagram from this Mermaid code using mermaid.live, VS Code Mermaid Preview, or GitHub's built-in Mermaid support.
+-->
+
+```mermaid
+flowchart TD
+    subgraph Frontend
+      A1[User Login/Register]
+      A2[Preferences Form]
+      A3[Recommendations View]
+      A4[Itinerary Builder]
+      A5[Admin Dashboard]
+    end
+    subgraph Backend
+      B1[API Gateway]
+      B2[Auth Service]
+      B3[Recommendation Engine]
+      B4[Itinerary Service]
+      B5[Database Service]
+      B6[Admin Service]
+    end
+    subgraph Data & ML
+      C1[User Data]
+      C2[Destinations]
+      C3[Activities]
+      C4[ML Models]
+      C5[External APIs]
+    end
+
+    A1-->|REST/GraphQL|B1
+    A2-->|REST/GraphQL|B1
+    A3-->|REST/GraphQL|B1
+    A4-->|REST/GraphQL|B1
+    A5-->|REST/GraphQL|B1
+    B1-->|Auth|B2
+    B1-->|Recommend|B3
+    B1-->|Itinerary|B4
+    B1-->|Admin|B6
+    B3-->|User, Destinations, Activities, ML|C1
+    B3-->|ML Models|C4
+    B4-->|User, Destinations, Activities|C1
+    B5-->|CRUD|C1
+    B5-->|CRUD|C2
+    B5-->|CRUD|C3
+    B6-->|Admin CRUD|C2
+    B6-->|Admin CRUD|C3
+    B3-->|External Data|C5
+    B4-->|External Data|C5
+```
+
+---
+
+_You can further style this diagram in Figma, Excalidraw, or Lucidchart for a more visual, branded look!_
