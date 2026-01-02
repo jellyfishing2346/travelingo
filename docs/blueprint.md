@@ -5,7 +5,6 @@
 
 ## System Blueprint
 
-```mermaid
 flowchart TD
     A[User Interface (Web/App)]
     B[Backend API]
@@ -18,12 +17,11 @@ flowchart TD
     A -- REST/GraphQL --> B
     B -- SQL/ORM --> C
     B -- Calls --> D
-    D -- "Returns Recommendations" --> B
+    D -- Returns Recommendations --> B
     B -- Calls --> E
-    E -- "Returns Itinerary" --> B
-    B -- "Admin Routes" --> F
-    B -- "Fetches Data" --> G
-```
+    E -- Returns Itinerary --> B
+    B -- Admin Routes --> F
+    B -- Fetches Data --> G
 
 ---
 
