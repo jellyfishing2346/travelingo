@@ -1,12 +1,10 @@
 # Travelingo System Architecture
 
-![Travelingo Architecture](./architecture-diagram.png)
 
 ---
 
 ## System Blueprint
 
-```mermaid
 flowchart TD
     A[User Interface (Web/App)]
     B[Backend API]
@@ -24,7 +22,6 @@ flowchart TD
     E -- Returns Itinerary --> B
     B -- Admin Routes --> F
     B -- Fetches Data --> G
-```
 
 ---
 
