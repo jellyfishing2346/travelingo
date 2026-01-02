@@ -24,7 +24,7 @@ A full-stack, data-driven travel recommendation system that helps users plan tri
 
 ## Tech Stack (Proposed)
 - Frontend: React (or Vue)
-- Backend: Python (Flask/Django) or Node.js
+- Backend: Python (Flask)
 - Database: PostgreSQL or MongoDB
 - ML/Data Science: Python (scikit-learn, pandas, etc.)
 - Deployment: Docker, GitHub Actions, cloud provider (Azure/AWS/Heroku)
@@ -105,5 +105,19 @@ flowchart TD
 - [Behance Travel Dashboard](https://www.behance.net/search/projects?search=travel%20dashboard)
 
 ---
+
+## 🐍 Backend Setup (Flask)
+
+The backend is built with [Flask](https://flask.palletsprojects.com/). To run locally:
+
+```bash
+cd backend
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python app.py
+```
+
+Visit [http://127.0.0.1:5000/api/health](http://127.0.0.1:5000/api/health) to check the health endpoint.
 
 For more detailed requirements, see [`docs/requirements.md`](docs/requirements.md).
