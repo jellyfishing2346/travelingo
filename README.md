@@ -36,12 +36,17 @@ A full-stack, data-driven travel recommendation system that helps users plan tri
 
 ---
 
-## 🧰 Tech Stack (Proposed)
-- 🎨 Frontend: React (or Vue)
-- 🐍 Backend: Python (Flask/Django) or Node.js
-- 🗄️ Database: PostgreSQL or MongoDB
-- 📊 ML/Data Science: Python (scikit-learn, pandas, etc.)
-- 🚀 Deployment: Docker, GitHub Actions, cloud provider (Azure/AWS/Heroku)
+
+## 🧰 Tech Stack (Current)
+
+- 🎨 Frontend: React (TypeScript), React Router, Fetch API
+- 🐍 Backend: Python (Flask), Flask-CORS, Flask-SQLAlchemy
+- 🗄️ Database: SQLite (via SQLAlchemy)
+- 🧪 Testing: (Recommended) pytest (backend), React Testing Library/Jest (frontend)
+- 🛠️ Dev Tools: Node.js, npm, Git
+- 🚀 Deployment: (Planned) Docker, GitHub Actions, cloud provider (Azure/AWS/Heroku)
+
+> See `requirements.txt` and `package.json` for full dependency lists.
 
 
 ---
