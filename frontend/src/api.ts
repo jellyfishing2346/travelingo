@@ -1,4 +1,12 @@
+
 const API_BASE_URL = 'http://127.0.0.1:5000';
+export async function getRecommendations() {
+    const res = await fetch(`${API_BASE_URL}/api/recommendations`);
+    if (!res.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return res.json();
+}
 
 export async function getHealth() {
     const res = await fetch(`${API_BASE_URL}/api/health`);
@@ -9,7 +17,7 @@ export async function getHealth() {
 }
 
 
-export async function postRecommendations(preferences: { season: string; interests?: string; budget?: string }) {
+export async function postRecommendations(preferences: { season: string; interests: string[]; budget: string }) {
     const res = await fetch(`${API_BASE_URL}/api/recommendations`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -10,20 +10,16 @@ def health_check():
 
 
 # Mock recommendations endpoint
-@app.route('/api/recommendations', methods=['GET', 'POST'])
+@app.route('/api/recommendations')
 def get_recommendations():
-    recommendations = [
-        {"destination": "Maldives", "season": "Winter", "description": "Best for winter escapes and beach lovers."},
-        {"destination": "Swiss Alps", "season": "Winter", "description": "Perfect for skiing and winter sports."},
-        {"destination": "Kyoto, Japan", "season": "Spring", "description": "Stunning cherry blossoms in spring."},
-        {"destination": "Marrakech, Morocco", "season": "Autumn", "description": "Warm and vibrant in autumn."}
-    ]
-    if request.method == 'POST':
-        data = request.get_json()
-        season = data.get('season')
-        filtered_recommendations = [rec for rec in recommendations if rec['season'].lower() == season.lower()]
-        return jsonify(recommendations=filtered_recommendations)
-    return jsonify(recommendations=recommendations)
+    return jsonify(
+        recommendations=[
+            {"destination": "Maldives", "season": "Winter", "description": "Best for winter escapes and beach lovers."},
+            {"destination": "Swiss Alps", "season": "Winter", "description": "Perfect for skiing and winter sports."},
+            {"destination": "Kyoto, Japan", "season": "Spring", "description": "Stunning cherry blossoms in spring."},
+            {"destination": "Marrakech, Morocco", "season": "Autumn", "description": "Warm and vibrant in autumn."}
+        ]
+    )
 
 # Mock itinerary endpoint
 @app.route('/api/itinerary')
