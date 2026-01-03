@@ -21,8 +21,13 @@ export async function getHealth() {
     return res.json();
 }
 
-export async function getRecommendations() {
-    const res = await fetch(`${API_BASE_URL}/api/recommendations`);
+
+export async function postRecommendations(preferences: { season: string; interests?: string; budget?: string }) {
+    const res = await fetch(`${API_BASE_URL}/api/recommendations`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(preferences),
+    });
     if (!res.ok) {
         throw new Error('Network response was not ok');
     }
