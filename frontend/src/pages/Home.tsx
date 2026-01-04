@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { getHealth } from '../api';
 
 const Home: React.FC = () => {
@@ -37,9 +38,17 @@ const Home: React.FC = () => {
         <li>🗺️ Easy itinerary planning and management</li>
         <li>🔒 Secure and user-friendly experience</li>
       </ul>
-      <p style={{ marginTop: '2rem', fontWeight: 'bold', color: '#1976d2' }}>
-        Start your journey by exploring recommendations or building your itinerary!
-      </p>
+      <div style={{ marginTop: '2rem', fontWeight: 'bold', color: '#1976d2' }}>
+        Start your journey by{' '}
+        <Link to="/recommendations" style={{ color: '#1976d2', textDecoration: 'underline', fontWeight: 'bold' }}>
+          exploring recommendations
+        </Link>
+        {' '}or{' '}
+        <Link to="/itinerary" style={{ color: '#1976d2', textDecoration: 'underline', fontWeight: 'bold' }}>
+          building your itinerary
+        </Link>
+        !
+      </div>
       <p style={{ marginTop: '2rem', color: '#388e3c', fontWeight: 'bold' }}>
         Backend status: {health ? health : "Loading..."}
       </p>
