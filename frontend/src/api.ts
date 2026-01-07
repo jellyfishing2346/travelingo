@@ -1,5 +1,5 @@
 
-const API_BASE_URL = 'http://127.0.0.1:5000';
+const API_BASE_URL = "https://your-backend.onrender.com/api";
 export async function getRecommendations() {
     const res = await fetch(`${API_BASE_URL}/api/recommendations`);
     if (!res.ok) {
