@@ -1,5 +1,5 @@
 
-const API_BASE_URL = "https://your-backend.onrender.com";
+const API_BASE_URL = "https://travelingo-0ms9.onrender.com";
 export async function getRecommendations() {
     const res = await fetch(`${API_BASE_URL}/api/recommendations`);
     if (!res.ok) {
