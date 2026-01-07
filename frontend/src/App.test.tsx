@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom';
 jest.mock('react-leaflet');
 jest.mock('leaflet');
 import { render, screen } from '@testing-library/react';

@@ -56,4 +56,16 @@
     "eslint-config-react-app": "^7.0.1",
     "identity-obj-proxy": "^3.0.0"
   }
+  ,
+  "jest": {
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "/node_modules/(?!(react-leaflet|@react-leaflet|react-error-boundary|leaflet)/)"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+    }
+  }
 }
