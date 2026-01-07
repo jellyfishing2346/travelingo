@@ -18,6 +18,7 @@ class Destination(db.Model):
     description = db.Column(db.String(255), nullable=False)
     interests = db.Column(db.String(255), nullable=False)  # Comma-separated string
     budget = db.Column(db.String(20), nullable=False)
+    image_url = db.Column(db.String(255), nullable=True)  # URL to destination image
 
 # User model for authentication
 class User(db.Model):
@@ -71,22 +72,32 @@ def recommendations():
         interests = data.get('interests', [])
         budget = data.get('budget')
 
+        # Normalize interests for matching
+        interests = [i.strip().lower() for i in interests]
+
         query = Destination.query
-        if season:
+        # Only filter if not 'All' or empty
+        if season and season.lower() != 'all':
             query = query.filter(Destination.season.ilike(season))
-        if interests:
-            # Filter if any interest matches
-            interest_filters = [Destination.interests.ilike(f'%{i}%') for i in interests]
-            query = query.filter(db.or_(*interest_filters))
-        if budget:
+        if interests and 'all' not in interests and len(interests) > 0:
+            from sqlalchemy import or_
+            interest_filters = [
+                Destination.interests.ilike(f"%{i}%") for i in interests
+            ]
+            query = query.filter(or_(*interest_filters))
+        if budget and budget.lower() != 'all':
             query = query.filter(Destination.budget.ilike(budget))
 
         results = query.all()
+        # Debug: print what is being returned
+        print("DEBUG: Filtered results:", [(r.destination, r.season, r.interests, r.budget) for r in results])
+
         recs = [
             {
                 "destination": r.destination,
                 "season": r.season,
-                "description": r.description
+                "description": r.description,
+                "image_url": r.image_url
             } for r in results
         ]
         return jsonify(recommendations=recs)
@@ -97,7 +108,8 @@ def recommendations():
             {
                 "destination": r.destination,
                 "season": r.season,
-                "description": r.description
+                "description": r.description,
+                "image_url": r.image_url
             } for r in results
         ]
         return jsonify(recommendations=recs)
@@ -164,4 +176,28 @@ def get_itinerary():
     )
 
 if __name__ == '__main__':
+    # Bulk test data insertion for recommendations
+    def add_bulk_destinations():
+        destinations = [
+            Destination(destination="Swiss Alps", season="Spring", description="Hiking and nature in the Alps.", interests="adventure,nature", budget="medium", image_url="/images/swiss_alps_spring.jpg"),
+            Destination(destination="Maldives", season="Winter", description="Relax on the beach.", interests="beach,relaxation", budget="high", image_url="/images/maldives.jpg"),
+            Destination(destination="Kyoto", season="Autumn", description="Cultural and nature experiences in Japan.", interests="culture,nature", budget="medium", image_url="/images/kyoto.jpg"),
+            Destination(destination="Banff", season="Summer", description="Adventure and nature in Canada.", interests="adventure,nature", budget="medium", image_url="/images/banff.jpg"),
+            Destination(destination="Paris", season="Spring", description="Culture and relaxation in France.", interests="culture,relaxation", budget="high", image_url="/images/paris.jpg"),
+            Destination(destination="Aspen", season="Winter", description="Skiing and adventure in the US.", interests="skiing,adventure", budget="high", image_url="/images/aspen.jpg"),
+            Destination(destination="Santorini", season="Summer", description="Beach and relaxation in Greece.", interests="beach,relaxation", budget="medium", image_url="/images/santorini.jpg"),
+            Destination(destination="Queenstown", season="Spring", description="Adventure and nature in New Zealand.", interests="adventure,nature", budget="medium", image_url="/images/queenstown.jpg"),
+            Destination(destination="Rome", season="Autumn", description="Culture and history in Italy.", interests="culture", budget="medium", image_url="/images/rome.jpg"),
+            Destination(destination="Bali", season="Summer", description="Beach, adventure, and relaxation in Indonesia.", interests="beach,adventure,relaxation", budget="low", image_url="/images/bali.jpg"),
+        ]
+        for d in destinations:
+            db.session.add(d)
+        db.session.commit()
+        print("Bulk destinations added.")
+
+    # Ensure tables are created before inserting bulk data
+if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
+        add_bulk_destinations()
     app.run(debug=True)
