@@ -49,9 +49,6 @@ const Home: React.FC = () => {
         </Link>
         !
       </div>
-      <p style={{ marginTop: '2rem', color: '#388e3c', fontWeight: 'bold' }}>
-        Backend status: {health ? health : "Loading..."}
-      </p>
     </div>
   );
 };
