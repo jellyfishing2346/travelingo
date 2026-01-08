@@ -1,7 +1,3 @@
-# Root route to resolve 404 for '/'
-@app.route('/')
-def index():
-    return 'Travelingo backend is running. See /api/health for status.'
 
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
