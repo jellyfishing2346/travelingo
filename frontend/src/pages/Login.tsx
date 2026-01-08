@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+// @ts-ignore
 import '../AuthForm.css';
 import { API_BASE_URL } from '../api';
 
