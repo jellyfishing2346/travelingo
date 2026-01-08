@@ -1,6 +1,8 @@
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../AuthForm.css';
+import { API_BASE_URL } from '../api';
 
 const Signup: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -21,7 +23,7 @@ const Signup: React.FC = () => {
     setMessage(null);
     setError(null);
     try {
-      const res = await fetch('/api/register', {
+      const res = await fetch(`${API_BASE_URL}/api/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, email, password })
