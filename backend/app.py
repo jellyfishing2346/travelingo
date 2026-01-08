@@ -2,17 +2,24 @@
 @app.route('/')
 def index():
     return 'Travelingo backend is running. See /api/health for status.'
+
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 from werkzeug.security import generate_password_hash, check_password_hash
 
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///travelingo.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 CORS(app)
 db = SQLAlchemy(app)
+
+# Root route to resolve 404 for '/'
+@app.route('/')
+def index():
+    return 'Travelingo backend is running. See /api/health for status.'
 
 # Destination model for travel recommendations
 class Destination(db.Model):
