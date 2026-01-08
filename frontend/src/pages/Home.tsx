@@ -1,15 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { getHealth } from '../api';
+
 
 const Home: React.FC = () => {
-  const [health, setHealth] = useState<string | null>(null);
-
-  useEffect(() => {
-    getHealth()
-      .then(data => setHealth(data.status))
-      .catch(() => setHealth("API unavailable"));
-  }, []);
 
   return (
     <div style={{
@@ -47,7 +40,6 @@ const Home: React.FC = () => {
         <Link to="/itinerary" style={{ color: '#1976d2', textDecoration: 'underline', fontWeight: 'bold' }}>
           building your itinerary
         </Link>
-        !
       </div>
     </div>
   );
