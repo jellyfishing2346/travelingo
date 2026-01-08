@@ -1,6 +1,8 @@
+
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../AuthForm.css';
+import { API_BASE_URL } from '../api';
 
 const Login: React.FC<{ onLogin?: (token: string) => void }> = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -20,7 +22,7 @@ const Login: React.FC<{ onLogin?: (token: string) => void }> = ({ onLogin }) => 
     setMessage(null);
     setError(null);
     try {
-      const res = await fetch('/api/login', {
+      const res = await fetch(`${API_BASE_URL}/api/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
