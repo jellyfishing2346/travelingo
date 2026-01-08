@@ -5,6 +5,7 @@ import Recommendations from './pages/Recommendations';
 import Itinerary from './pages/Itinerary';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import ProtectedRoute from './ProtectedRoute';
 import './App.css';
 
 function App() {
@@ -54,12 +55,16 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login onLogin={handleLogin} />} />
             <Route path="/signup" element={<Signup />} />
-            {token && (
-              <>
-                <Route path="/recommendations" element={<Recommendations />} />
-                <Route path="/itinerary" element={<Itinerary />} />
-              </>
-            )}
+            <Route path="/recommendations" element={
+              <ProtectedRoute token={token}>
+                <Recommendations />
+              </ProtectedRoute>
+            } />
+            <Route path="/itinerary" element={
+              <ProtectedRoute token={token}>
+                <Itinerary />
+              </ProtectedRoute>
+            } />
           </Routes>
         </div>
       </div>
