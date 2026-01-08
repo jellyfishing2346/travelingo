@@ -17,39 +17,20 @@ A full-stack, data-driven travel recommendation system that helps users plan tri
 ---
 
 ## 🏆 Key Features
-- 🔒 User authentication and profile management
-- 🌐 Destination and activity database
-- 🧠 Intelligent recommendation engine (season-aware)
-- 🗺️ Itinerary planner
-- 📱 Responsive frontend UI
-- 🚢 Deployable with CI/CD and Docker
 
 
----
 
 ## 👤 Initial User Stories
-- 🙋‍♂️ As a user, I want to enter my travel preferences and dates so I can get personalized recommendations.
-- 🌴 As a user, I want to see the best destinations for my chosen season.
-- 📝 As a user, I want to view and edit my generated itinerary.
-- 🛠️ As an admin, I want to manage destinations and activities in the system.
 
 
----
 
 
 ## 🧰 Tech Stack (Current)
 
-- 🎨 Frontend: React (TypeScript), React Router, Fetch API
-- 🐍 Backend: Python (Flask), Flask-CORS, Flask-SQLAlchemy
-- 🗄️ Database: SQLite (via SQLAlchemy)
-- 🧪 Testing: (Recommended) pytest (backend), React Testing Library/Jest (frontend)
-- 🛠️ Dev Tools: Node.js, npm, Git
-- 🚀 Deployment: (Planned) Docker, GitHub Actions, cloud provider (Azure/AWS/Heroku)
 
 > See `requirements.txt` and `package.json` for full dependency lists.
 
 
----
 
 ## ⏭️ Next Steps
 
@@ -67,9 +48,6 @@ npm install
 npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
-
-### 🛠️ To build for production:
 
 ```sh
 npm run build
@@ -115,7 +93,6 @@ flowchart TD
 
 		A1-->|REST/GraphQL|B1
 		A2-->|REST/GraphQL|B1
-		A3-->|REST/GraphQL|B1
 		A4-->|REST/GraphQL|B1
 		A5-->|REST/GraphQL|B1
 		B1-->|Auth|B2
