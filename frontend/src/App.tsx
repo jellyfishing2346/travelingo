@@ -33,7 +33,7 @@ function App() {
     <Router>
       <div className="App">
         <nav style={{ background: '#1976d2', padding: '1rem', color: 'white', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span style={{ fontWeight: 'bold', fontSize: '1.5rem', letterSpacing: '2px' }}>🌍 Travelingo</span>
+          <Link to="/" style={{ color: 'white', fontWeight: 'bold', fontSize: '1.5rem', letterSpacing: '2px', textDecoration: 'none' }}>🌍 Travelingo</Link>
           <div>
             {token ? (
               <>
